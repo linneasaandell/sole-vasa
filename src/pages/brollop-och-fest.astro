@@ -1,0 +1,344 @@
+---
+// src/pages/sasongens-buketter.astro
+---
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Säsongens Buketter | Solé Vasa</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-vanilla: #FAF8F5;
+      --bg-card: #F4F0E8;
+      --text-main: #141414;
+      --text-muted: #625E56;
+      --accent-orange: #C97A52;
+      --peach-diffuse: #E8B49B;
+      --border-color: #EAE5DA;
+      --max-w: 1140px;
+
+      --font-heading: 'Italiana', serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-vanilla);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      background: var(--bg-vanilla);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 1.4rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .flower-logo-img {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+    }
+
+    .brand-text {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      line-height: 1;
+      letter-spacing: 0.04em;
+    }
+
+    .back-btn {
+      font-size: 0.74rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 2px;
+      transition: all 0.2s ease;
+    }
+
+    .back-btn:hover {
+      color: var(--accent-orange);
+      border-color: var(--accent-orange);
+    }
+
+    main {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 5rem 2rem 7rem;
+    }
+
+    .page-intro {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 5rem;
+    }
+
+    .page-tag {
+      font-size: 0.74rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent-orange);
+      margin-bottom: 0.8rem;
+      display: block;
+      font-weight: 500;
+    }
+
+    h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      font-weight: 400;
+    }
+
+    .page-lead {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2.8rem;
+      margin-bottom: 6rem;
+    }
+
+    .product-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-img-wrap {
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: var(--bg-card);
+      border-radius: 2px;
+      margin-bottom: 1.1rem;
+    }
+
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .product-card:hover .card-img-wrap img {
+      transform: scale(1.03);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.35rem;
+    }
+
+    .card-title {
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
+      color: var(--text-main);
+      font-weight: 400;
+    }
+
+    .card-price {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--accent-orange);
+      letter-spacing: 0.04em;
+    }
+
+    .card-caption {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .order-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-top: 3px solid var(--accent-orange);
+      padding: 3.5rem 2.5rem;
+      text-align: center;
+      border-radius: 2px;
+    }
+
+    .order-box h2 {
+      font-family: var(--font-heading);
+      font-size: 2.3rem;
+      margin-bottom: 0.8rem;
+      font-weight: 400;
+    }
+
+    .order-box p {
+      color: var(--text-muted);
+      max-width: 580px;
+      margin: 0 auto 2rem;
+      font-weight: 300;
+    }
+
+    .btn-contact {
+      display: inline-block;
+      background: var(--text-main);
+      color: var(--bg-vanilla);
+      padding: 0.95rem 2.4rem;
+      font-size: 0.76rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 999px;
+      transition: background-color 0.2s ease;
+      font-weight: 500;
+    }
+
+    .btn-contact:hover {
+      background: var(--accent-orange);
+      color: #FFFFFF;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 3.5rem 2rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+
+    @media (max-width: 860px) {
+      .product-grid { grid-template-columns: 1fr; gap: 3rem; }
+      main { padding: 3.5rem 1.5rem 5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="/" class="brand-link">
+        <img src="/flower.logo.png" alt="Solé Vasa" class="flower-logo-img" onerror="this.style.display='none'" />
+        <span class="brand-text">Solé Vasa</span>
+      </a>
+      <a href="/" class="back-btn">&larr; Tillbaka</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-intro">
+      <span class="page-tag">Dagsfärskt Binderi</span>
+      <h1>Säsongens Buketter</h1>
+      <p class="page-lead">
+        Handbundna buketter med vilda former, naturliga skiftningar och personligt utvalda snittblommor från säsongens bästa odlingar.
+      </p>
+    </div>
+
+    <div class="product-grid">
+      <!-- 1 -->
+      <div class="product-card">
+        <div class="card-img-wrap"><img src="/blom1.jpeg" alt="Signaturbukett Vasa" /></div>
+        <div class="card-header">
+          <h2 class="card-title">Signaturbukett Vasa</h2>
+          <span class="card-price">från 450 kr</span>
+        </div>
+        <p class="card-caption">Kurerad färgkomposition med vilda former och dagsfärska snittblommor.</p>
+      </div>
+
+      <!-- 2 -->
+      <div class="product-card">
+        <div class="card-img-wrap"><img src="/blom2.jpeg" alt="Pastell & Knopp" /></div>
+        <div class="card-header">
+          <h2 class="card-title">Pastell &amp; Knopp</h2>
+          <span class="card-price">från 520 kr</span>
+        </div>
+        <p class="card-caption">Skira pastelltoner och pudriga rosor bundna med naturlig lätthet.</p>
+      </div>
+
+      <!-- 3 -->
+      <div class="product-card">
+        <div class="card-img-wrap"><img src="/blom5.jpeg" alt="Vild Trädgårdsbunt" /></div>
+        <div class="card-header">
+          <h2 class="card-title">Vild Trädgårdsbunt</h2>
+          <span class="card-price">från 380 kr</span>
+        </div>
+        <p class="card-caption">Luftigt bunden med känslan av en nyskördad sommaräng.</p>
+      </div>
+
+      <!-- 4 -->
+      <div class="product-card">
+        <div class="card-img-wrap"><img src="/blom6.jpeg" alt="Fredagsbuketten" /></div>
+        <div class="card-header">
+          <h2 class="card-title">Fredagsbuketten</h2>
+          <span class="card-price">från 490 kr</span>
+        </div>
+        <p class="card-caption">Veckans utvalda säsongskombination som sätter stämningen inför helgen.</p>
+      </div>
+
+      <!-- 5 -->
+      <div class="product-card">
+        <div class="card-img-wrap"><img src="/blom7.jpeg" alt="Knopp & Solé" /></div>
+        <div class="card-header">
+          <h2 class="card-title">Knopp &amp; Solé</h2>
+          <span class="card-price">från 580 kr</span>
+        </div>
+        <p class="card-caption">Generösa blomhuvuden i en varm, harmonisk färgpalett.</p>
+      </div>
+
+      <!-- 6 -->
+      <div class="product-card">
+        <div class="card-img-wrap"><img src="/blom8.jpeg" alt="Grand Vasa Special" /></div>
+        <div class="card-header">
+          <h2 class="card-title">Grand Vasa Special</h2>
+          <span class="card-price">från 850 kr</span>
+        </div>
+        <p class="card-caption">Ett storslaget arrangemang med extra volym för speciella firanden.</p>
+      </div>
+    </div>
+
+    <div class="order-box">
+      <h2>Vill du beställa bud eller förbereda för avhämtning?</h2>
+      <p>Ring butiken på 031-13 49 00 eller 0735-82 49 05 så binder vi ihop buketten efter dina önskemål.</p>
+      <a href="tel:031134900" class="btn-contact">Ring butiken</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; {new Date().getFullYear()} Solé Vasa &bull; FLOWER SHOP &bull; Vasastan, Göteborg</p>
+  </footer>
+
+</body>
+</html>
