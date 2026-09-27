@@ -120,7 +120,7 @@
 
     nav {
       display: flex;
-      gap: 1.8rem;
+      gap: 1.5rem;
       flex-wrap: wrap;
       justify-content: center;
       margin-top: 0.4rem;
@@ -210,13 +210,23 @@
 
     .intro-offer-section {
       width: 100%;
-      padding: 6rem 2rem 4.5rem;
+      padding: 6.5rem 2rem 5rem;
     }
 
     .intro-offer-box {
-      max-width: 1100px;
+      max-width: 900px;
       margin: 0 auto;
       text-align: center;
+    }
+
+    .intro-tag {
+      font-size: 0.76rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent-orange);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      display: block;
     }
 
     .intro-offer-box h2 {
@@ -229,12 +239,9 @@
     .intro-offer-box p {
       font-size: 1.15rem;
       color: var(--text-muted);
-      line-height: 1.8;
-      margin-bottom: 2rem;
+      line-height: 1.85;
+      margin-bottom: 1.5rem;
       font-weight: 300;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
     }
 
     .category-grid {
@@ -407,7 +414,6 @@
       text-decoration: underline;
     }
 
-    /* KONTAKTGUIDE UTAN FORMULÄR */
     .store-details {
       max-width: var(--max-w);
       margin: 0 auto 7.5rem;
@@ -622,12 +628,14 @@
         <span class="brand-sub">FLOWER SHOP</span>
       </div>
       <nav>
+        <a href="#om-oss">Om oss</a>
         <a href="/buketter">Buketter</a>
         <a href="/brollop-och-fest">Bröllop &amp; Fest</a>
         <a href="/vaxter">Växter</a>
         <a href="/workshops">Workshops</a>
         <a href="/hogtider">Högtider</a>
         <a href="/for-foretag">För företag</a>
+        <a href="#samarbetspartners">Samarbetspartners</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
     </div>
@@ -643,11 +651,16 @@
       </div>
     </section>
 
-    <section class="intro-offer-section">
+    <!-- OM OSS SEKTION -->
+    <section id="om-oss" class="intro-offer-section">
       <div class="intro-offer-box">
+        <span class="intro-tag">Om oss</span>
         <h2>Säsongens blomster &amp; botaniskt hantverk</h2>
         <p>
-          Vi binder personliga buketter för vardag och firande, skapar skräddarsydd blomsterdesign för bröllop och fest, samt erbjuder grön växtskötsel till både hem och företag.
+          Välkommen till Solé Vasa – en botanisk studio i hjärtat av Vasastan. Vi skapar med naturens egna skiftningar som främsta inspiration och binder personliga buketter för både vardagens stunder och livets största firanden.
+        </p>
+        <p style="font-size: 1rem; margin-bottom: 0;">
+          Förutom snittblommor och bröllopsarrangemang handplockar vi gröna växter, erbjuder workshops och sköter växtservice för lokala företag.
         </p>
       </div>
     </section>
@@ -697,43 +710,43 @@
       </a>
     </section>
 
-    <!-- KONSTNÄRER SEKTION (DIREKT FÖRE KONTAKT) -->
-    <section class="artists-section">
+    <!-- SAMARBETSPARTNERS (KONSTNÄRER) -->
+    <section id="samarbetspartners" class="artists-section">
       <div class="artists-inner">
-        <h2 class="section-title">Våra Samarbetskonstnärer</h2>
+        <h2 class="section-title">Våra Samarbetspartners</h2>
         <p class="section-subtitle">Lokal keramik, konst &amp; hantverk i butiken</p>
 
         <div class="artists-grid">
           <div class="artist-card">
-            <div class="artist-img-wrap"><img src="/vaxt4.jpeg" alt="Konstnär 1" /></div>
+            <div class="artist-img-wrap"><img src="/vaxt4.jpeg" alt="Keramik Studio" /></div>
             <h3 class="artist-name">Keramik Studio</h3>
             <span class="artist-role">Handgjord keramik</span>
             <a href="mailto:keramik@solevasa.se" class="artist-email">keramik@solevasa.se</a>
           </div>
 
           <div class="artist-card">
-            <div class="artist-img-wrap"><img src="/vaxt4.jpeg" alt="Konstnär 2" /></div>
+            <div class="artist-img-wrap"><img src="/vaxt4.jpeg" alt="Ateljé Vasa" /></div>
             <h3 class="artist-name">Ateljé Vasa</h3>
             <span class="artist-role">Botaniska tryck</span>
             <a href="mailto:atelje@solevasa.se" class="artist-email">atelje@solevasa.se</a>
           </div>
 
           <div class="artist-card">
-            <div class="artist-img-wrap"><img src="/vaxt2.jpeg" alt="Konstnär 3" /></div>
+            <div class="artist-img-wrap"><img src="/vaxt2.jpeg" alt="Glas & Form" /></div>
             <h3 class="artist-name">Glas &amp; Form</h3>
             <span class="artist-role">Munblåsta vaser</span>
             <a href="mailto:glas@solevasa.se" class="artist-email">glas@solevasa.se</a>
           </div>
 
           <div class="artist-card">
-            <div class="artist-img-wrap"><img src="/vaxt2.jpeg" alt="Konstnär 4" /></div>
+            <div class="artist-img-wrap"><img src="/vaxt2.jpeg" alt="Linne & Textil" /></div>
             <h3 class="artist-name">Linne &amp; Textil</h3>
             <span class="artist-role">Bordslinne</span>
             <a href="mailto:textil@solevasa.se" class="artist-email">textil@solevasa.se</a>
           </div>
 
           <div class="artist-card">
-            <div class="artist-img-wrap"><img src="/vaxt2.jpeg" alt="Konstnär 5" /></div>
+            <div class="artist-img-wrap"><img src="/vaxt2.jpeg" alt="Ljusmakeriet" /></div>
             <h3 class="artist-name">Ljusmakeriet</h3>
             <span class="artist-role">Stöpta ljus</span>
             <a href="mailto:ljus@solevasa.se" class="artist-email">ljus@solevasa.se</a>
