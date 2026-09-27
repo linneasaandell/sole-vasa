@@ -208,15 +208,40 @@
       color: #FFFFFF;
     }
 
-    .intro-offer-section {
+    /* OM OSS SEKTION MED BILD */
+    .about-section {
       width: 100%;
       padding: 6.5rem 2rem 5rem;
     }
 
-    .intro-offer-box {
-      max-width: 900px;
+    .about-inner {
+      max-width: var(--max-w);
       margin: 0 auto;
-      text-align: center;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 4rem;
+    }
+
+    .about-image-wrap {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border-radius: 2px;
+      background: var(--bg-card);
+    }
+
+    .about-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .intro-tag {
@@ -229,18 +254,18 @@
       display: block;
     }
 
-    .intro-offer-box h2 {
-      font-size: clamp(2.2rem, 4vw, 3.4rem);
+    .about-content h2 {
+      font-size: clamp(2.2rem, 3.5vw, 3.2rem);
       line-height: 1.2;
       margin-bottom: 1.4rem;
       color: var(--text-main);
     }
 
-    .intro-offer-box p {
-      font-size: 1.15rem;
+    .about-content p {
+      font-size: 1.05rem;
       color: var(--text-muted);
       line-height: 1.85;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
       font-weight: 300;
     }
 
@@ -596,6 +621,7 @@
     }
 
     @media (max-width: 960px) {
+      .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
       .category-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
       .artists-grid { grid-template-columns: repeat(3, 1fr); }
       .store-details { grid-template-columns: 1fr; gap: 3rem; }
@@ -651,17 +677,22 @@
       </div>
     </section>
 
-    <!-- OM OSS SEKTION -->
-    <section id="om-oss" class="intro-offer-section">
-      <div class="intro-offer-box">
-        <span class="intro-tag">Om oss</span>
-        <h2>Säsongens blomster &amp; botaniskt hantverk</h2>
-        <p>
-          Välkommen till Solé Vasa – en botanisk studio i hjärtat av Vasastan. Vi skapar med naturens egna skiftningar som främsta inspiration och binder personliga buketter för både vardagens stunder och livets största firanden.
-        </p>
-        <p style="font-size: 1rem; margin-bottom: 0;">
-          Förutom snittblommor och bröllopsarrangemang handplockar vi gröna växter, erbjuder workshops och sköter växtservice för lokala företag.
-        </p>
+    <!-- OM OSS SEKTION MED BILD -->
+    <section id="om-oss" class="about-section">
+      <div class="about-inner">
+        <div class="about-image-wrap">
+          <img src="/omoss.jpeg" alt="Om Solé Vasa butik och studio" />
+        </div>
+        <div class="about-content">
+          <span class="intro-tag">Om oss</span>
+          <h2>Säsongens blomster &amp; botaniskt hantverk</h2>
+          <p>
+            Välkommen till Solé Vasa – en botanisk studio i hjärtat av Vasastan. Vi skapar buketter med naturens egna material som främsta inspiration och binder personliga buketter för både vardagens stunder och livets största firanden.
+          </p>
+          <p>
+            Förutom snittblommor och bröllopsarrangemang erbjuder vi olika växter, workshops och växtprenumerationer för lokala företag.
+          </p>
+        </div>
       </div>
     </section>
 
