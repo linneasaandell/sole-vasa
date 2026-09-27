@@ -1,0 +1,84 @@
+---
+// src/pages/hogtider.astro
+---
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Högtider | Solé Vasa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-vanilla: #FAF8F5;
+      --bg-card: #F4F0E8;
+      --text-main: #141414;
+      --text-muted: #625E56;
+      --accent-orange: #C97A52;
+      --border-color: #EAE5DA;
+      --font-heading: 'Italiana', serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg-vanilla); color: var(--text-main); font-family: var(--font-body); }
+    header { border-bottom: 1px solid var(--border-color); padding: 1.4rem 2rem; display: flex; justify-content: space-between; align-items: center; max-width: 1140px; margin: 0 auto; }
+    .brand { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; color: inherit; font-family: var(--font-heading); font-size: 2.2rem; }
+    .back { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--text-muted); text-decoration: none; }
+    main { max-width: 1140px; margin: 0 auto; padding: 4.5rem 2rem 6rem; }
+    .intro { text-align: center; max-width: 720px; margin: 0 auto 4rem; }
+    h1 { font-family: var(--font-heading); font-size: 3.2rem; margin-bottom: 0.8rem; }
+    .festivals-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+    .festival-card { background: var(--bg-card); border-radius: 2px; overflow: hidden; display: flex; flex-direction: column; }
+    .festival-card img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+    .fest-body { padding: 2rem 1.8rem; flex-grow: 1; display: flex; flex-direction: column; }
+    .fest-title { font-family: var(--font-heading); font-size: 1.85rem; margin-bottom: 0.6rem; }
+    .fest-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem; flex-grow: 1; font-weight: 300; }
+    .btn-fest { align-self: flex-start; background: var(--text-main); color: var(--bg-vanilla); padding: 0.65rem 1.4rem; border-radius: 999px; text-decoration: none; font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; }
+    @media(max-width: 860px) {
+      .festivals-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/" class="brand"><img src="/flower.png" alt="Solé Vasa" style="width:34px; height:34px;" />Solé Vasa</a>
+    <a href="/" class="back">&larr; Tillbaka till start</a>
+  </header>
+  <main>
+    <div class="intro">
+      <h1>Årets Högtider</h1>
+      <p style="color:var(--text-muted);">Vi skapar säsongens stämningsfulla blomsterarrangemang för årets alla högtider.</p>
+    </div>
+    <div class="festivals-grid">
+      <div class="festival-card">
+        <img src="/blom1.jpeg" alt="Jul på Solé Vasa" />
+        <div class="fest-body">
+          <h2 class="fest-title">Jul</h2>
+          <p class="fest-desc">Handgjorda dörrkransar med ädelgran, amaryllisarrangemang, doftande hyacinter och juldukningar i sobra toner.</p>
+          <a href="tel:031134900" class="btn-fest">Förboka julblommor</a>
+        </div>
+      </div>
+
+      <div class="festival-card">
+        <img src="/blom2.jpeg" alt="Midsommar på Solé Vasa" />
+        <div class="fest-body">
+          <h2 class="fest-title">Midsommar</h2>
+          <p class="fest-desc">Klassiska och vilda midsommarkransar för huvudet, somriga ängsbuketter och blomster till midsommarbordet.</p>
+          <a href="tel:031134900" class="btn-fest">Beställ midsommarkrans</a>
+        </div>
+      </div>
+
+      <div class="festival-card">
+        <img src="/blom3.jpeg" alt="Påsk på Solé Vasa" />
+        <div class="fest-body">
+          <h2 class="fest-title">Påsk</h2>
+          <p class="fest-desc">Spirande påskris med naturliga inslag, krispiga tulpaner, narcisser och ljusa fjäderlätta vårarrangemang.</p>
+          <a href="tel:031134900" class="btn-fest">Boka påskris &amp; buketter</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
