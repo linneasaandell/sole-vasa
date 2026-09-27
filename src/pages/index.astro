@@ -407,6 +407,7 @@
       text-decoration: underline;
     }
 
+    /* KONTAKTGUIDE UTAN FORMULÄR */
     .store-details {
       max-width: var(--max-w);
       margin: 0 auto 7.5rem;
@@ -477,7 +478,11 @@
       text-decoration: none;
     }
 
-    .form-card {
+    .contact-val-simple:hover {
+      color: var(--accent-orange);
+    }
+
+    .contact-guide-box {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-top: 3px solid var(--accent-orange);
@@ -485,56 +490,55 @@
       border-radius: 2px;
     }
 
-    .form-card h3 {
+    .contact-guide-box h3 {
       font-size: 2.1rem;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.6rem;
       color: var(--text-main);
     }
 
-    .form-card p {
+    .contact-guide-box p {
       color: var(--text-muted);
-      font-size: 0.9rem;
-      margin-bottom: 2rem;
+      font-size: 0.96rem;
+      margin-bottom: 1.6rem;
       font-weight: 300;
+      line-height: 1.7;
     }
 
-    .form-group {
-      margin-bottom: 1.25rem;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      font-weight: 600;
-      margin-bottom: 0.35rem;
-      color: var(--text-main);
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 0.85rem 1rem;
+    .guide-checklist {
+      list-style: none;
+      margin-bottom: 2.2rem;
+      padding: 1.2rem;
+      background: #FFFFFF;
       border: 1px solid var(--border-color);
       border-radius: 2px;
-      background: #FFFFFF;
-      font-family: var(--font-body);
-      font-size: 0.92rem;
-      color: var(--text-main);
-      transition: border-color 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
     }
 
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--accent-orange);
+    .guide-checklist li {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
     }
 
-    .btn-submit {
-      width: 100%;
+    .guide-checklist li::before {
+      content: "•";
+      color: var(--accent-orange);
+      font-size: 1.4rem;
+      line-height: 0;
+    }
+
+    .action-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .btn-mail-action {
+      display: block;
       text-align: center;
       background: var(--text-main);
       color: var(--bg-vanilla);
@@ -542,17 +546,36 @@
       font-size: 0.78rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      border: none;
+      text-decoration: none;
       border-radius: 999px;
-      cursor: pointer;
-      transition: background-color 0.2s ease;
       font-weight: 500;
-      margin-top: 0.5rem;
+      transition: background-color 0.2s ease;
     }
 
-    .btn-submit:hover {
+    .btn-mail-action:hover {
       background: var(--accent-orange);
       color: #FFFFFF;
+    }
+
+    .btn-call-action {
+      display: block;
+      text-align: center;
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--text-main);
+      padding: 0.95rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .btn-call-action:hover {
+      background: var(--text-main);
+      color: var(--bg-vanilla);
     }
 
     footer {
@@ -575,7 +598,7 @@
     @media (max-width: 640px) {
       .category-grid { grid-template-columns: 1fr; }
       .artists-grid { grid-template-columns: repeat(2, 1fr); }
-      .form-card { padding: 2rem 1.5rem; }
+      .contact-guide-box { padding: 2rem 1.5rem; }
     }
   </style>
 </head>
@@ -719,12 +742,12 @@
       </div>
     </section>
 
-    <!-- KONTAKTFORMULÄR -->
+    <!-- KONTAKTGUIDE -->
     <section id="kontakt" class="store-details">
       <div>
         <h2>Besök &amp; Kontakt</h2>
         <p style="color: var(--text-muted); font-weight: 300;">
-          Kontakta oss för beställningar, blomsterbud, abonnemang eller konsultation inför bröllop och fest.
+          Kontakta oss gärna för beställningar av buketter, blomsterbud, abonnemang eller konsultation inför bröllop och fest.
         </p>
 
         <ul class="contact-list">
@@ -750,45 +773,27 @@
         </ul>
       </div>
 
-      <div class="form-card">
-        <h3>Skicka Förfrågan</h3>
-        <p>Fyll i dina uppgifter så återkopplar vi så snart som möjligt.</p>
+      <div class="contact-guide-box">
+        <h3>Hur du gör en förfrågan</h3>
+        <p>
+          Vi hanterar alla förfrågningar personligen via mail och telefon. För snabbast service och för att vi ska kunna hjälpa dig på bästa sätt, inkludera gärna:
+        </p>
 
-        <form action="mailto:flowers@solevasa.se" method="post" enctype="text/plain">
-          <div class="form-group">
-            <label for="name">Namn</label>
-            <input type="text" id="name" name="namn" required placeholder="Ditt namn" />
-          </div>
+        <ul class="guide-checklist">
+          <li>Önskat datum eller leveransdag</li>
+          <li>Typ av ärende (bukett, bröllop, företag eller workshop)</li>
+          <li>Eventuella färgönskemål eller prisidé</li>
+          <li>Ditt telefonnummer så att vi snabbt kan återkoppla</li>
+        </ul>
 
-          <div class="form-group">
-            <label for="email">E-postadress</label>
-            <input type="email" id="email" name="epost" required placeholder="din.epost@exempel.se" />
-          </div>
-
-          <div class="form-group">
-            <label for="phone">Telefonnummer</label>
-            <input type="tel" id="phone" name="telefon" placeholder="070-000 00 00" />
-          </div>
-
-          <div class="form-group">
-            <label for="type">Typ av ärende</label>
-            <select id="type" name="arende">
-              <option value="bukett">Säsongens bukett / Blomsterbud</option>
-              <option value="foretag">Företag / Vattningsprenumeration</option>
-              <option value="brollop">Bröllop &amp; Festarrangemang</option>
-              <option value="workshop">Workshop</option>
-              <option value="hogtid">Högtidsarrangemang</option>
-              <option value="ovrigt">Övrig fråga</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="message">Meddelande / Önskemål</label>
-            <textarea id="message" name="meddelande" rows="4" required placeholder="Dina önskemål..."></textarea>
-          </div>
-
-          <button type="submit" class="btn-submit">Skicka meddelande</button>
-        </form>
+        <div class="action-buttons">
+          <a href="mailto:flowers@solevasa.se?subject=Förfrågan Solé Vasa" class="btn-mail-action">
+            Maila oss: flowers@solevasa.se
+          </a>
+          <a href="tel:031134900" class="btn-call-action">
+            Ring butiken: 031-13 49 00
+          </a>
+        </div>
       </div>
     </section>
   </main>
